@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    android:showDividers="beginning|middle|end"
+    android:textAlignment="viewStart">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:showDividers="beginning|middle|end"
+        android:text="Id"
+        android:id="@+id/pm_id"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false"
+        android:enabled="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:showDividers="beginning|middle|end"
+        android:text="Name"
+        android:id="@+id/name"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false"
+        android:enabled="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:showDividers="beginning|middle|end"
+        android:text="Role"
+        android:id="@+id/role"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:enabled="true"
+        android:clickable="false" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:showDividers="beginning|middle|end"
+        android:text="Age"
+        android:id="@+id/age"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="true"
+        android:enabled="false" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:showDividers="beginning|middle|end"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="Market Date"
+        android:id="@+id/market_date"
+        android:enabled="true"
+        android:clickable="false" />
+
+</LinearLayout>
