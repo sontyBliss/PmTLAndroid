@@ -12,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.TableLayout;
 
 
 public class PlayersActivity extends Activity {
@@ -40,13 +39,22 @@ public class PlayersActivity extends Activity {
         }
     };
 
+    private View.OnClickListener buttonOnClickHandler = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Button b = (Button)v;
+            detailIntent.putExtra("player", b.getText() );
+            startActivity(detailIntent);
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_players);
 
         db_helper = new mySqliteHelper(this);
-        if ( !db_helper.equals(null) ) {
+        if ( db_helper != null ) {
             database = db_helper.getWritableDatabase();
         }
 
@@ -55,7 +63,7 @@ public class PlayersActivity extends Activity {
 
         detailIntent = new Intent ( this, PlayerDetailActivity.class );
 
-        if ( !database.equals(null) ) {
+        if ( database != null ) {
             Cursor cursor = database.rawQuery("select pm_id as _id, name, role, age, market_date from players where country=? order by market_date desc",value);
 
             String[] fromColumns = {"_id", "name", "role", "age", "market_date"};
