@@ -27,6 +27,14 @@ public class PlayersActivity extends Activity {
             startActivity(detailIntent);
         }
     };
+    private AdapterView.OnItemLongClickListener playerOnItemLongClickHandler = new AdapterView.OnItemLongClickListener() {
+        @Override
+        public boolean onItemLongClick(AdapterView parent, View v, int position, long id) {
+            detailIntent.putExtra("player", "cici" );
+            startActivity(detailIntent);
+            return true;
+        }
+    };
     private AdapterView.OnItemSelectedListener playerOnItemSelectedHandler = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView parent, View v, int position, long id) {
@@ -78,6 +86,7 @@ public class PlayersActivity extends Activity {
 
             listView.setOnItemClickListener(playerClickedHandler);
             listView.setOnItemSelectedListener(playerOnItemSelectedHandler);
+            listView.setOnItemLongClickListener(playerOnItemLongClickHandler);
             listView.setItemsCanFocus(false);
         }
     }
