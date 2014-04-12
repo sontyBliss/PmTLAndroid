@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class PlayerDetailActivity extends Activity {
@@ -15,6 +16,8 @@ public class PlayerDetailActivity extends Activity {
         setContentView(R.layout.activity_player_detail);
         Intent intent = getIntent();
         String[] value = new String[]{intent.getStringExtra("player")};
+        TextView tv = (TextView)findViewById(R.id.playerName);
+        tv.setText(value[0]);
     }
 
 
