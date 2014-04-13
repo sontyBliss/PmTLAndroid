@@ -23,36 +23,20 @@ public class PlayersActivity extends Activity {
     private AdapterView.OnItemClickListener playerClickedHandler = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView parent, View v, int position, long id) {
-            detailIntent.putExtra("player", "cucu" );
+            ListView lv = (ListView)parent;
+            Cursor c = (Cursor)lv.getItemAtPosition(position);
+            detailIntent.putExtra("player", "cucu "+c.getString(0)+" "+c.getString(1) );
             startActivity(detailIntent);
         }
     };
     private AdapterView.OnItemLongClickListener playerOnItemLongClickHandler = new AdapterView.OnItemLongClickListener() {
         @Override
         public boolean onItemLongClick(AdapterView parent, View v, int position, long id) {
-            detailIntent.putExtra("player", "cici" );
+            ListView lv = (ListView)parent;
+            Cursor c = (Cursor)lv.getItemAtPosition(position);
+            detailIntent.putExtra("player", "cici "+c.getString(0)+" "+c.getString(1) );
             startActivity(detailIntent);
             return true;
-        }
-    };
-    private AdapterView.OnItemSelectedListener playerOnItemSelectedHandler = new AdapterView.OnItemSelectedListener() {
-        @Override
-        public void onItemSelected(AdapterView parent, View v, int position, long id) {
-            detailIntent.putExtra("player", "caca" );
-            startActivity(detailIntent);
-        }
-        @Override
-        public void onNothingSelected(AdapterView parent ) {
-
-        }
-    };
-
-    private View.OnClickListener buttonOnClickHandler = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Button b = (Button)v;
-            detailIntent.putExtra("player", b.getText() );
-            startActivity(detailIntent);
         }
     };
 
@@ -85,9 +69,7 @@ public class PlayersActivity extends Activity {
             }
 
             listView.setOnItemClickListener(playerClickedHandler);
-            listView.setOnItemSelectedListener(playerOnItemSelectedHandler);
             listView.setOnItemLongClickListener(playerOnItemLongClickHandler);
-            listView.setItemsCanFocus(false);
         }
     }
 

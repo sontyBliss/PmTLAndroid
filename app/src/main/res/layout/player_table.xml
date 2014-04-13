@@ -11,60 +11,63 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     android:paddingBottom="16dp"
-    android:clickable="true"
-    android:showDividers="beginning|middle|end"
     android:descendantFocusability="blocksDescendants"
     android:divider="@android:color/holo_red_dark"
     android:textAlignment="viewStart"
 -->
-
 <!--
         android:showDividers="beginning|middle|end"
+        android:clickable="false"
+        android:editable="false"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:clickable="false"
-        android:enabled="true"
 -->
     <TextView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:hint="Id"
         android:id="@+id/pm_id"
+        android:enabled="false"
         android:visibility="invisible" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:textIsSelectable="true"
+        android:textIsSelectable="false"
         style="?android:attr/textAppearanceListItem"
         android:hint="Name"
         android:id="@+id/name"
-     />
+        android:enabled="true"
+        android:layout_gravity="left" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:textIsSelectable="true"
+        android:textIsSelectable="false"
         style="?android:attr/textAppearanceListItem"
         android:hint="Role"
         android:id="@+id/role"
-     />
+        android:enabled="true"
+        android:layout_gravity="left" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:textIsSelectable="true"
+        android:textIsSelectable="false"
         style="?android:attr/textAppearanceListItem"
         android:hint="Age"
         android:id="@+id/age"
-     />
+        android:enabled="true"
+        android:layout_gravity="left" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:textIsSelectable="true"
+        android:textIsSelectable="false"
         style="?android:attr/textAppearanceListItem"
         android:hint="Market Date"
         android:id="@+id/market_date"
-     />
+        android:layout_gravity="left"
+        android:enabled="true"
+    />
 </LinearLayout>
