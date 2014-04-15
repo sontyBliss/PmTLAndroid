@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         db_helper = new mySqliteHelper(this);
-        database = db_helper.getWritableDatabase();
+        database = db_helper.getReadableDatabase();
         Cursor cursor = database.rawQuery("select * from countries order by name", null);
         table_layout = (TableLayout) findViewById(R.id.countryLayout);
         intent = new Intent(this, PlayersActivity.class);

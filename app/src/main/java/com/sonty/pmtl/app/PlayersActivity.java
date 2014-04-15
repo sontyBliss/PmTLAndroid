@@ -25,7 +25,7 @@ public class PlayersActivity extends Activity {
         public void onItemClick(AdapterView parent, View v, int position, long id) {
             ListView lv = (ListView)parent;
             Cursor c = (Cursor)lv.getItemAtPosition(position);
-            detailIntent.putExtra("player", "cucu "+c.getString(0)+" "+c.getString(1) );
+            detailIntent.putExtra("player", c.getString(0) );
             startActivity(detailIntent);
         }
     };
@@ -34,7 +34,7 @@ public class PlayersActivity extends Activity {
         public boolean onItemLongClick(AdapterView parent, View v, int position, long id) {
             ListView lv = (ListView)parent;
             Cursor c = (Cursor)lv.getItemAtPosition(position);
-            detailIntent.putExtra("player", "cici "+c.getString(0)+" "+c.getString(1) );
+            detailIntent.putExtra("player", c.getString(0) );
             startActivity(detailIntent);
             return true;
         }
@@ -47,7 +47,7 @@ public class PlayersActivity extends Activity {
 
         db_helper = new mySqliteHelper(this);
         if ( db_helper != null ) {
-            database = db_helper.getWritableDatabase();
+            database = db_helper.getReadableDatabase();
         }
 
         Intent intent = getIntent();
