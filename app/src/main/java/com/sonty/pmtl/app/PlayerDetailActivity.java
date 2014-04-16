@@ -5,14 +5,10 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.provider.BaseColumns;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.GridLayout;
-import android.widget.ListView;
+import android.widget.GridView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
 
 
 public class PlayerDetailActivity extends Activity {
@@ -36,14 +32,19 @@ public class PlayerDetailActivity extends Activity {
         if ( database != null ) {
             Cursor cursor = database.rawQuery("select pm_id as _id,* from players where pm_id=?",value);
 
-            String[] fromColumns = {"name", "age", "tac", "hea", "pas", "pos"};
-            int[] toViews = {R.id.playerName, R.id.playerAge, R.id.playerTackling, R.id.playerHeading, R.id.playerPassing, R.id.playerPositioning};
+            String[] fromColumns = {"name", "age", "tac", "hea", "pas", "pos", "han", "out", "ref", "agi", "fin", "tec", "spe", "str"};
+            int[] toViews = {R.id.playerName, R.id.playerAge, R.id.playerTackling,
+                    R.id.playerHeading, R.id.playerPassing, R.id.playerPositioning,
+                    R.id.playerHandling, R.id.playerCrosses, R.id.playerReflexes,
+                    R.id.playerAgility, R.id.playerFinishing, R.id.playerTechnique,
+                    R.id.playerSpeed, R.id.playerStrength
+            };
 
             if (cursor.moveToFirst()) {
                 SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
-                        R.layout.activity_player_detail, cursor, fromColumns, toViews, 0);
-                GridLayout l = (GridLayout)findViewById(R.layout.activity_player_detail);
-//                listView.setAdapter(adapter);
+                        R.layout.player_detail, cursor, fromColumns, toViews, 0);
+                GridView gv = (GridView)findViewById(R.id.playerDetailTable);
+                gv.setAdapter(adapter);
             }
         }
     }

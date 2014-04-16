@@ -1,56 +1,32 @@
-<GridLayout
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:columnCount="2"
-    android:rowCount="8">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sonty.pmtl.app.PlayersDetailActivity">
+    <!--
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:clickable="true"
+    -->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/playerName"
-        android:text="playerName"
-        android:layout_row="0"
-        android:layout_column="0" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/playerAge"
-        android:text="playerAge"
-        android:layout_row="0"
-        android:layout_column="1" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/playerTackling"
-        android:text="playerTackling"
-        android:layout_row="4"
-        android:layout_column="0" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/playerHeading"
-        android:text="playerHeading"
-        android:layout_row="5"
-        android:layout_column="0" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/playerPassing"
-        android:text="playerPassing"
-        android:layout_row="6"
-        android:layout_column="0" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/playerPositioning"
-        android:text="playerPositioning"
-        android:layout_row="7"
-        android:layout_column="0" />
-</GridLayout>
+    <!--
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:choiceMode="singleChoice"
+            android:clickable="true"
+            android:divider="@android:color/holo_red_dark"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:longClickable="true"
+    -->
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/playerDetailTable"
+        >
+    </GridView>
+</RelativeLayout>

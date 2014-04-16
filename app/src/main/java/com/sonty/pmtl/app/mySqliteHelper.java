@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class mySqliteHelper extends SQLiteOpenHelper {
     public mySqliteHelper(Context context) {
-        super(context, "pmtl.db", null, 1);
+        super(context, context.getString(R.string.db_path), null, 1);
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
