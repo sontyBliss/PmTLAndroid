@@ -13,24 +13,19 @@ import android.widget.SimpleCursorAdapter;
 
 public class PlayerDetailActivity extends Activity {
 
-    private mySqliteHelper db_helper;
-    private SQLiteDatabase database;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player_detail);
 
-        db_helper = new mySqliteHelper(this);
-        if ( db_helper != null ) {
-            database = db_helper.getReadableDatabase();
-        }
+        mySqliteHelper db_helper = new mySqliteHelper(this);
+        SQLiteDatabase database = db_helper.getReadableDatabase();
 
         Intent intent = getIntent();
         String[] value = new String[]{intent.getStringExtra("player")};
 
         if ( database != null ) {
-            Cursor cursor = database.rawQuery("select pm_id as _id,* from players where pm_id=?",value);
+            Cursor cursor = database.rawQuery("select pm_id as _id,* from players where pm_id=?", value);
 
             String[] fromColumns = {"name", "age", "tac", "hea", "pas", "pos", "han", "out", "ref", "agi", "fin", "tec", "spe", "str"};
             int[] toViews = {R.id.playerName, R.id.playerAge, R.id.playerTackling,
@@ -40,7 +35,7 @@ public class PlayerDetailActivity extends Activity {
                     R.id.playerSpeed, R.id.playerStrength
             };
 
-            if (cursor.moveToFirst()) {
+            if ((cursor != null) && (cursor.moveToFirst())) {
                 SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
                         R.layout.player_detail, cursor, fromColumns, toViews, 0);
                 GridView gv = (GridView)findViewById(R.id.playerDetailTable);
@@ -64,10 +59,7 @@ public class PlayerDetailActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return id == R.id.action_settings || super.onOptionsItemSelected(item);
     }
 
 }

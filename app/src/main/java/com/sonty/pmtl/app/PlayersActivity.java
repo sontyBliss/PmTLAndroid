@@ -9,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
@@ -17,24 +16,26 @@ import android.widget.SimpleCursorAdapter;
 public class PlayersActivity extends Activity {
 
     private Intent detailIntent;
-    private mySqliteHelper db_helper;
-    private SQLiteDatabase database;
 
-    private AdapterView.OnItemClickListener playerClickedHandler = new AdapterView.OnItemClickListener() {
+    private final AdapterView.OnItemClickListener playerClickedHandler = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView parent, View v, int position, long id) {
             ListView lv = (ListView)parent;
             Cursor c = (Cursor)lv.getItemAtPosition(position);
-            detailIntent.putExtra("player", c.getString(0) );
+            if ( c != null ) {
+                detailIntent.putExtra("player", c.getString(0));
+            }
             startActivity(detailIntent);
         }
     };
-    private AdapterView.OnItemLongClickListener playerOnItemLongClickHandler = new AdapterView.OnItemLongClickListener() {
+    private final AdapterView.OnItemLongClickListener playerOnItemLongClickHandler = new AdapterView.OnItemLongClickListener() {
         @Override
         public boolean onItemLongClick(AdapterView parent, View v, int position, long id) {
             ListView lv = (ListView)parent;
             Cursor c = (Cursor)lv.getItemAtPosition(position);
-            detailIntent.putExtra("player", c.getString(0) );
+            if ( c != null ) {
+                detailIntent.putExtra("player", c.getString(0));
+            }
             startActivity(detailIntent);
             return true;
         }
@@ -45,10 +46,8 @@ public class PlayersActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_players);
 
-        db_helper = new mySqliteHelper(this);
-        if ( db_helper != null ) {
-            database = db_helper.getReadableDatabase();
-        }
+        mySqliteHelper db_helper = new mySqliteHelper(this);
+        SQLiteDatabase database = db_helper.getReadableDatabase();
 
         Intent intent = getIntent();
         String[] value = new String[]{intent.getStringExtra("country")};
@@ -56,13 +55,13 @@ public class PlayersActivity extends Activity {
         detailIntent = new Intent ( this, PlayerDetailActivity.class );
 
         if ( database != null ) {
-            Cursor cursor = database.rawQuery("select pm_id as _id, name, role, age, market_date from players where country=? order by market_date desc",value);
+            Cursor cursor = database.rawQuery("select pm_id as _id, name, role, age, market_date from players where country=? order by market_date desc", value);
 
             String[] fromColumns = {"_id", "name", "role", "age", "market_date"};
             int[] toViews = {R.id.pm_id, R.id.name, R.id.role, R.id.age, R.id.market_date};
 
             ListView listView = (ListView) findViewById(R.id.playerTable);
-            if (cursor.moveToFirst()) {
+            if ((cursor != null) && (cursor.moveToFirst())) {
                 SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
                         R.layout.player_table, cursor, fromColumns, toViews, 0);
                 listView.setAdapter(adapter);
@@ -88,10 +87,7 @@ public class PlayersActivity extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return id == R.id.action_settings || super.onOptionsItemSelected(item);
     }
 
 }
