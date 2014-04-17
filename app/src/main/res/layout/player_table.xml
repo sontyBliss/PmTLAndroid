@@ -25,7 +25,7 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:hint="Id"
+        android:hint="@string/playerId"
         android:id="@+id/pm_id"
         android:enabled="false"
         android:visibility="invisible" />
@@ -35,7 +35,7 @@
         android:layout_marginLeft="5dp"
         android:textIsSelectable="false"
         style="?android:attr/textAppearanceListItem"
-        android:hint="Name"
+        android:hint="@string/playerName"
         android:id="@+id/name"
         android:enabled="true"
         android:layout_gravity="left" />
@@ -45,7 +45,7 @@
         android:layout_marginLeft="5dp"
         android:textIsSelectable="false"
         style="?android:attr/textAppearanceListItem"
-        android:hint="Role"
+        android:hint="@string/playerRole"
         android:id="@+id/role"
         android:enabled="true"
         android:layout_gravity="left" />
@@ -55,7 +55,7 @@
         android:layout_marginLeft="5dp"
         android:textIsSelectable="false"
         style="?android:attr/textAppearanceListItem"
-        android:hint="Age"
+        android:hint="@string/playerAge"
         android:id="@+id/age"
         android:enabled="true"
         android:layout_gravity="left" />
@@ -65,7 +65,7 @@
         android:layout_marginLeft="5dp"
         android:textIsSelectable="false"
         style="?android:attr/textAppearanceListItem"
-        android:hint="Market Date"
+        android:hint="@string/playerMarketDate"
         android:id="@+id/market_date"
         android:layout_gravity="left"
         android:enabled="true"

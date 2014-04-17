@@ -2,11 +2,27 @@
 <resources>
 
     <string name="app_name">PmTL</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_players">PlayersActivity</string>
     <string name="title_activity_player_detail">PlayerDetailActivity</string>
     <string name="package_name">com.sonty.pmtl.app</string>
     <string name="db_path">/data/data/com.sonty.pmtl.app/databases/pmtl.db</string>
+    <string name="playerName">Name:</string>
+    <string name="playerAge">Age:</string>
+    <string name="playerId">Id:</string>
+    <string name="playerTackling">Tackling:</string>
+    <string name="playerRole">Role:</string>
+    <string name="playerHandling">Handling:</string>
+    <string name="playerMarketDate">Market Date:</string>
+    <string name="playerHeading">Heading:</string>
+    <string name="playerCrosses">Crosses:</string>
+    <string name="playerPassing">Passing:</string>
+    <string name="playerReflexes">Reflexes:</string>
+    <string name="playerPositioning">Positioning:</string>
+    <string name="playerAgility">Agility:</string>
+    <string name="playerFinishing">Finishing:</string>
+    <string name="playerTechnique">Technique:</string>
+    <string name="playerSpeed">Speed:</string>
+    <string name="playerStrength">Strength:</string>
 
 </resources>
